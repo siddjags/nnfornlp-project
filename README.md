@@ -23,7 +23,7 @@ Repository for CMU 11-747 Course Project
 
 ## Acknowledgments
 
-We would like to acknowledge the guidance of Ojasv Kamal, a student in IIT Kharagpur, who authored the paper we chose to implement, for clarifying parameters used in re-creating mentioned results. [paper](https://arxiv.org/abs/2101.05494) 
+We would like to acknowledge the guidance of Ojasv Kamal, a student in IIT Kharagpur, who authored the [paper](https://arxiv.org/abs/2101.05494) we chose to implement, for clarifying parameters used in re-creating mentioned results.  
 
 
 
