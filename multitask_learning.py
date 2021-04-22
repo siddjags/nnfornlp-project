@@ -177,7 +177,7 @@ class multitask_classifier():
         self.training_loader = DataLoader(training_set, **train_params)
         self.testing_loader = DataLoader(testing_set, **test_params)
         self.model = ModelClass(self.model_path, self.output_dir + "/" + self.model_path[-10:] + "_" + "non-hostile" + "_model.pt", self.dropout, self.target_labels)
-        self.model.to(self.device);
+        self.model.to(self.device)
         self.optimizer = torch.optim.Adam(params =  self.model.parameters(), lr=self.lr)
         os.makedirs(self.output_dir, exist_ok=True)
 
@@ -187,6 +187,8 @@ class multitask_classifier():
         torch.manual_seed(self.seed)
         if self.n_gpu > 0:
             torch.cuda.manual_seed_all(self.seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
 
     def loss_fn(self, outputs, targets):
         return torch.nn.BCEWithLogitsLoss()(outputs, targets)
@@ -228,7 +230,7 @@ class multitask_classifier():
             self.optimizer.step()
 
     def train_model(self):
-        Best_score = 0;
+        Best_score = 0
         for epoch in range(self.epochs):
             self.train(epoch)
             outputs, targets = self.validation(epoch)

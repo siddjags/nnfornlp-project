@@ -181,6 +181,8 @@ class bin_classifier():
         torch.manual_seed(self.seed)
         if self.n_gpu > 0:
             torch.cuda.manual_seed_all(self.seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
 
     def loss_fn(self, outputs, targets):
         return torch.nn.BCEWithLogitsLoss()(outputs, targets)
