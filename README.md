@@ -1,4 +1,4 @@
-# nnfornlp-project
+# Hostile Language Detection in Hindi Posts using Neural Techniques
 Repository for CMU 11-747 Course Project
 
 ## Steps to run:
